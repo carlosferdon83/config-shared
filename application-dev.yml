@@ -1,0 +1,48 @@
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      write_dates_as_timestamps: false
+server:
+  error:
+    include-stacktrace: on_trace_param
+    include-message: always
+    include-binding-errors: always
+  compression:
+    enabled: true
+management:
+  endpoints:
+    shutdown:
+      enabled: true
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: "*"
+  health:
+    db:
+      enabled: true
+    probes:
+      enabled: true
+    diskspace:
+      enabled: true
+    ping:
+      enabled: true
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
+springfox:
+  documentation:
+    enabled: true
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n - trace_id=%X{trace_id} span_id=%X{span_id} trace_flags=%X{trace_flags} %n"
