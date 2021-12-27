@@ -22,11 +22,6 @@ management:
       enabled: true
     health:
       show-details: always
-      probes:
-        enabled: true
-      group:
-        readiness:
-          include: "*"
   health:
     db:
       enabled: true
@@ -35,10 +30,6 @@ management:
     diskspace:
       enabled: true
     ping:
-      enabled: true
-    livenessState:
-      enabled: true
-    readinessState:
       enabled: true
 springfox:
   documentation:
